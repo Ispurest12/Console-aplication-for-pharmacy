@@ -9,17 +9,17 @@ public class Farmacia {
 
     private int pastillasAgregadas;
     private final int maximaCapacidadPastillas = 100;
-    private Pastilla[] pastillas;
+    private final Pastilla[] pastillas;
 
 
     private int jarabesAgregados;
     private final int maximaCapacidadJarabes = 50;
-    private Jarabe[] jarabes;
+    private final Jarabe[] jarabes;
 
 
     private int pomadasAgregadas;
     private final int maximaCapacidadPomadas = 50;
-    private Pomada[] pomadas;
+    private final Pomada[] pomadas;
 
 
     public Farmacia() {
@@ -28,44 +28,41 @@ public class Farmacia {
         this.jarabesAgregados = 0;
         this.jarabes = new Jarabe[maximaCapacidadJarabes];
         this.pomadasAgregadas = 0;
-        this.pomadas = new   Pomada[maximaCapacidadPomadas];
+        this.pomadas = new Pomada[maximaCapacidadPomadas];
     }
 
     public  void agregarMedicamentoPastilla() {
             if (pastillasAgregadas < maximaCapacidadPastillas) {
             String nombre = Herramienta.pedirString("Nombre de la pastilla: ", scanner);
-            scanner.nextLine();
+
             String laboratorio = Herramienta.pedirString("Nombre de laboratorio: ", scanner);
-            Boolean generico = Herramienta.pedirBool("Patente: ", scanner);
+            Boolean generico = Herramienta.pedirBool("Generico: ", scanner);
             int codigo = Herramienta.pedirEntero("Codigo de barras: ", scanner);
             double costoMedicamento = Herramienta.pedirDouble("Costo medicamento: ", scanner);
             double costoPublico = Herramienta.pedirDouble("Costo publico: ", scanner);
-            String fechaFabricacion = Herramienta.pedirString("Fecha de fabricacion: ", scanner);
-            String fechaCaducidad = Herramienta.pedirString("Fecha de caducidad: ", scanner);
             scanner.nextLine();
+            LocalDate fechaFabricacion = Herramienta.pedirFecha("Fecha de fabricacion: ", scanner);
+            LocalDate fechaCaducidad = Herramienta.pedirFecha("Fecha de caducidad: ", scanner);
             String pastillasTotales = Herramienta.pedirString("Pastillas totales: ", scanner);
-            scanner.nextLine();
             String miligramosPorPastilla = Herramienta.pedirString("Miligramos por pastilla: ", scanner);
-            scanner.nextLine();
             pastillas[pastillasAgregadas] = new Pastilla(nombre, laboratorio, generico, codigo, costoMedicamento, costoPublico, fechaFabricacion, fechaCaducidad, pastillasTotales, miligramosPorPastilla);
             pastillasAgregadas++;
             System.out.println("Pastillas Agregadas: " + pastillasAgregadas);
         }
     }
+
     public void agregarMedicamentoJarabe() {
         if (jarabesAgregados < maximaCapacidadJarabes) {
             String nombre = Herramienta.pedirString("Nombre del jarabe: ", scanner);
-            scanner.nextLine();
             String laboratorio = Herramienta.pedirString("Nombre de laboratorio: ", scanner);
-            Boolean generico = Herramienta.pedirBool("Patente: ", scanner);
+            Boolean generico = Herramienta.pedirBool("Generico: ", scanner);
             int codigo = Herramienta.pedirEntero("Codigo de barras: ", scanner);
             double costoMedicamento = Herramienta.pedirDouble("Costo medicamento: ", scanner);
             double costoPublico = Herramienta.pedirDouble("Costo publico: ", scanner);
-            String fechaFabricacion = Herramienta.pedirString("Fecha de fabricacion: ", scanner);
-            String fechaCaducidad = Herramienta.pedirString("Fecha caducidad: ", scanner);
             scanner.nextLine();
+            LocalDate fechaFabricacion = Herramienta.pedirFecha("Fecha de fabricacion: ", scanner);
+            LocalDate fechaCaducidad = Herramienta.pedirFecha("Fecha caducidad: ", scanner);
             String militrosTotales = Herramienta.pedirString("Militres totales: ", scanner);
-            scanner.nextLine();
             boolean dosificador = Herramienta.pedirBool("Dosificador: ", scanner);
             scanner.nextLine();
             jarabes[jarabesAgregados] = new Jarabe(nombre, laboratorio, generico, codigo, costoMedicamento, costoPublico, fechaFabricacion, fechaCaducidad, militrosTotales, dosificador);
@@ -79,15 +76,14 @@ public class Farmacia {
     public void agregarMedicamentoPomada() {
         if (pomadasAgregadas < maximaCapacidadPomadas) {
             String nombre = Herramienta.pedirString("Nombre del medicamento: ", scanner);
-            scanner.nextLine();
             String laboratorio = Herramienta.pedirString("Nombre de laboratorio: ", scanner);
-            Boolean generico = Herramienta.pedirBool("Patente: ", scanner);
+            Boolean generico = Herramienta.pedirBool("Generico: ", scanner);
             int codigo = Herramienta.pedirEntero("Codigo de barras: ", scanner);
             double costoMedicamento = Herramienta.pedirDouble("Costo medicamento: ", scanner);
             double costoPublico = Herramienta.pedirDouble("Costo publico: ", scanner);
             scanner.nextLine();
-            String fechaFabricacion = Herramienta.pedirString("Fecha de fabricacion: ", scanner);
-            String fechaCaducidad = Herramienta.pedirString("Fecha caducidad: ", scanner);
+            LocalDate fechaFabricacion = Herramienta.pedirFecha("Fecha de fabricacion: ", scanner);
+            LocalDate fechaCaducidad = Herramienta.pedirFecha("Fecha caducidad: ", scanner);
             String gramosPorUnidad = Herramienta.pedirString("Gramos por unidad: ", scanner);
             scanner.nextLine();
             pomadas[pomadasAgregadas] = new Pomada(nombre, laboratorio, generico, codigo, costoMedicamento, costoPublico, fechaFabricacion, fechaCaducidad, gramosPorUnidad);
@@ -518,7 +514,7 @@ public class Farmacia {
        if(pastillasAgregadas > 0) {
            for (int i = 0; i < pastillasAgregadas; i++) {
                Pastilla pastillaActual = pastillas[i];
-               LocalDate fechaPublicacicon = LocalDate.parse(pastillaActual.getFecha_publicacion());
+               LocalDate fechaPublicacicon = pastillaActual.getFecha_publicacion();
                if (fechaPublicacicon.getYear() == anioBuscado) {
                    System.out.println(pastillaActual.MostrarNombrePastillaPrecio());
                    encontrado = true;
@@ -530,7 +526,7 @@ public class Farmacia {
        if(jarabesAgregados > 0) {
            for (int i = 0; i < jarabesAgregados; i++) {
                Jarabe jarabeActual = jarabes[i];
-               LocalDate fechaPublicacicon = LocalDate.parse(jarabeActual.getFecha_publicacion());
+               LocalDate fechaPublicacicon = jarabeActual.getFecha_publicacion();
                if (fechaPublicacicon.getYear() == anioBuscado) {
                    System.out.println(jarabeActual.MostrarNombreJarabePrecio());
                    encontrado = true;
@@ -543,7 +539,7 @@ public class Farmacia {
        if(pomadasAgregadas > 0) {
            for (int i = 0; i < jarabesAgregados; i++) {
                Pomada pomadaActual = pomadas[i];
-               LocalDate fechaPublicacicon = LocalDate.parse(pomadaActual.getFecha_publicacion());
+               LocalDate fechaPublicacicon = pomadaActual.getFecha_publicacion();
                if (fechaPublicacicon.getYear() == anioBuscado) {
                    System.out.println(pomadaActual.MostrarNombrePomadaPrecio());
                    encontrado = true;
@@ -561,7 +557,7 @@ public class Farmacia {
        if(pastillasAgregadas > 0) {
            for (int i = 0; i < pastillasAgregadas; i++) {
                Pastilla pastillaActual = pastillas[i];
-               LocalDate pastillaVencida = LocalDate.parse(pastillaActual.getFecha_caducidad());
+               LocalDate pastillaVencida = pastillaActual.getFecha_caducidad();
                if (pastillaVencida.isBefore(hoy)) {
                    System.out.println("Pastilla vencida: " + pastillaActual.MostrarNombrePastillaPrecio());
                    encontrado = true;
@@ -571,7 +567,7 @@ public class Farmacia {
        if(jarabesAgregados > 0) {
            for (int i = 0; i < jarabesAgregados; i++) {
                Jarabe jarabeActual = jarabes[i];
-               LocalDate jarabeVencido = LocalDate.parse(jarabeActual.getFecha_caducidad());
+               LocalDate jarabeVencido = jarabeActual.getFecha_caducidad();
                if (jarabeVencido.isBefore(hoy)) {
                    System.out.println("Jarabe vencido:" + jarabeActual.MostrarNombreJarabePrecio());
                }
@@ -580,7 +576,7 @@ public class Farmacia {
        if(pomadasAgregadas > 0) {
            for (int i = 0; i < pomadasAgregadas; i++) {
                Pomada pomadaActual = pomadas[i];
-               LocalDate pomadaVencido = LocalDate.parse(pomadaActual.getFecha_caducidad());
+               LocalDate pomadaVencido = pomadaActual.getFecha_caducidad();
                if (pomadaVencido.isBefore(hoy)) {
                    System.out.println("Pomada vencida: " + pomadaActual.MostrarNombrePomadaPrecio());
                    encontrado = true;
