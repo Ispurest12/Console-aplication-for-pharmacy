@@ -1,18 +1,19 @@
 package farmacia;
+import java.time.LocalDate;
 
 
 public class Jarabe extends Medicamento {
-    private String mililitros_por_jarabe;
-    private boolean dosificador;
+    private final String mililitros_por_jarabe;
+    private final boolean dosificador;
 
 
-    public Jarabe(String nombre, String lab, Boolean tipo_medicamento, int codigo_barras, double costoMedicamento, double costoPublico, String fecha_publicacion, String fecha_caducidad, String mililitros_por_jarabe, boolean dosificador) {
+    public Jarabe(String nombre, String lab, Boolean tipo_medicamento, int codigo_barras, double costoMedicamento, double costoPublico, LocalDate fecha_publicacion, LocalDate fecha_caducidad, String mililitros_por_jarabe, boolean dosificador) {
         super(nombre, lab, tipo_medicamento, codigo_barras, costoMedicamento, costoPublico, fecha_publicacion, fecha_caducidad);
         this.mililitros_por_jarabe = mililitros_por_jarabe;
         this.dosificador = dosificador;
     }
 
-    public String getMililitros_por_jarabe() {
+   /* public String getMililitros_por_jarabe() {
         return mililitros_por_jarabe;
     }
 
@@ -26,7 +27,7 @@ public class Jarabe extends Medicamento {
 
     public void setDosificador(boolean dosificador) {
         this.dosificador = dosificador;
-    }
+    }*/
 
     public String MostrarNombreJarabePrecio(){
 

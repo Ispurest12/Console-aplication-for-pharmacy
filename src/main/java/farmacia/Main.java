@@ -16,20 +16,13 @@ public class Main {
             System.out.print("7. Buscar \n");
             System.out.print("8. Ordenar e imprimir \n");
             System.out.print("9. salir \n");
-            System.out.print("Opcion: ");
-            int opcion = scanner.nextInt();
-            scanner.nextLine();
+            int opcion = Herramienta.pedirEntero("Opcion: ", scanner);
             switch (opcion) {
                 case 1: {
                     System.out.println("a. pastillas ");
                     System.out.println("b. jarabes ");
                     System.out.println("c. pomadas ");
-                    System.out.println("Opcion: ");
-                    String entrada = scanner.nextLine().toLowerCase();
-                    char respuesta = ' ';
-                    if(!entrada.isEmpty()){
-                        respuesta = entrada.charAt(0);
-                    }
+                    char respuesta = Herramienta.pedirChar("Opcion: ", scanner);
                     switch (respuesta) {
                         case 'a': {
                         mifarmacia.agregarMedicamentoPastilla();
@@ -46,8 +39,7 @@ public class Main {
                     System.out.println("a. pastillas ");
                     System.out.println("b. jarabes ");
                     System.out.println("c. pomadas ");
-                    System.out.println("Opcion: ");
-                    char respuesta = scanner.next().toLowerCase().charAt(0);
+                    char respuesta = Herramienta.pedirChar("Opcion: ", scanner);
                     switch (respuesta) {
                         case 'a': {
                             mifarmacia.eliminarMedicamentoPastilla();
@@ -68,8 +60,7 @@ public class Main {
                     System.out.println("e. Modificar el precio de una pomada ");
                     System.out.println("f. Modificar el precio de todas las pomadas(Porcentaje de costo) ");
                     System.out.println("g. Regresar ");
-                    System.out.println("Opcion: ");
-                    char respuesta = scanner.next().toLowerCase().charAt(0);
+                    char respuesta = Herramienta.pedirChar("Opcion: ", scanner);
                     switch (respuesta) {
                         case 'a':{
                             mifarmacia.modificarPrecioUnaPastilla();
@@ -96,8 +87,7 @@ public class Main {
                     System.out.println("a. Imprimir la lista de todas las pastillas con precio ");
                     System.out.println("b. Imprimir la lista de todos los jarabes con precio ");
                     System.out.println("c. Imprimir la lista de todas las pomadas con precio  ");
-                    System.out.println("Opcion: ");
-                    char resultado = scanner.next().toLowerCase().charAt(0);
+                    char resultado = Herramienta.pedirChar("Opcion: ", scanner);
                     switch (resultado) {
                         case 'a':{
                             mifarmacia.mostrarPrecioTodasLasPastillas();
@@ -114,8 +104,7 @@ public class Main {
                     System.out.println("a. Imprimir la lista de todas las pastillas genericas con precio ");
                     System.out.println("b. Imprimir la lista de todos los jarabes genericos con precio ");
                     System.out.println("c. Imprimir la lista de todas las pomadas genericas con precio  ");
-                    System.out.println("Opcion: ");
-                    char resultado = scanner.next().toLowerCase().charAt(0);
+                    char resultado = Herramienta.pedirChar("Opcion: ", scanner);
                     switch (resultado) {
                         case 'a':{
                             mifarmacia.mostrarPrecioTodasLasPastillasG();
@@ -131,8 +120,7 @@ public class Main {
                 case 6: {
                     System.out.println("a. Imprimir resumen de medicamentos con patente");
                     System.out.println("b. Imprimir resumen de medicamentos genericos");
-                    System.out.println("Opcion: ");
-                    char resultado = scanner.next().toLowerCase().charAt(0);
+                    char resultado = Herramienta.pedirChar("Opcion: ", scanner);
                     if (resultado == 'a') {
                         mifarmacia.imprimirResumenPatente();
                     }
@@ -145,8 +133,7 @@ public class Main {
                     System.out.println("b. Buscar un producto por codigo de barras e imprimir toda su informacion ");
                     System.out.println("c. Buscar medicamento por año especifico e imprimir informacion");
                     System.out.println("d. Buscar medicamento caducado e imprimirlos ");
-                    System.out.println("Opcion: ");
-                    char resultado = scanner.next().toLowerCase().charAt(0);
+                    char resultado = Herramienta.pedirChar("Opcion: ", scanner);
                     switch (resultado) {
                         case 'a':{
                             mifarmacia.buscarPorNombre();
@@ -166,8 +153,7 @@ public class Main {
                     System.out.println("a. Pastillas");
                     System.out.println("b. Jarabes");
                     System.out.println("c. Pomadas");
-                    System.out.println("Opcion: ");
-                    char resultado = scanner.next().toLowerCase().charAt(0);
+                    char resultado = Herramienta.pedirChar("Opcion: ", scanner);
                     switch (resultado) {
                         case 'a':{
                             System.out.println("1. Ordenar por nombre e imprimir datos");
@@ -211,6 +197,7 @@ public class Main {
                 }continue;
                 case 9:{
                     salir = true;
+                    scanner.close();
                 }
             }
         }

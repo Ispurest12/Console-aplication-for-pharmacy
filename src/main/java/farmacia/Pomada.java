@@ -1,18 +1,20 @@
 package farmacia;
 
-public class Pomada extends Medicamento {
-    private String gramosPorUnidad;
+import java.time.LocalDate;
 
-    public String getGramosPorUnidad() {
+public class Pomada extends Medicamento {
+    private final String gramosPorUnidad;
+
+ /*   public String getGramosPorUnidad() {
         return gramosPorUnidad;
     }
 
     public void setGramosPorUnidad(String gramosPorUnidad) {
         this.gramosPorUnidad = gramosPorUnidad;
-    }
+    } */
 
 
-    public Pomada(String nombre, String lab, Boolean tipo_medicamento, int codigo_barras, double costoMedicamento, double costoPublico, String fecha_publicacion, String fecha_caducidad, String gramosPorUnidad) {
+    public Pomada(String nombre, String lab, Boolean tipo_medicamento, int codigo_barras, double costoMedicamento, double costoPublico, LocalDate fecha_publicacion, LocalDate fecha_caducidad, String gramosPorUnidad) {
         super(nombre, lab, tipo_medicamento, codigo_barras, costoMedicamento, costoPublico, fecha_publicacion, fecha_caducidad);
         this.gramosPorUnidad = gramosPorUnidad;
     }
