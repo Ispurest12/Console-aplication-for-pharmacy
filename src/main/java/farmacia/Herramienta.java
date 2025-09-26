@@ -35,7 +35,7 @@ public class Herramienta {
                 String textoFecha = scanner.nextLine();
                 return LocalDate.parse(textoFecha);
             } catch (DateTimeParseException e) {
-                System.out.println("Formato de fecha incorrecto, favor de introducir la fecha en formato yyyy/mm/aa");
+                System.out.println("Formato de fecha incorrecto, favor de introducir la fecha en formato yyyy-mm-aa");
             }
 
 

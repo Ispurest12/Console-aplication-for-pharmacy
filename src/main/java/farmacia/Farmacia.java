@@ -34,7 +34,6 @@ public class Farmacia {
     public  void agregarMedicamentoPastilla() {
             if (pastillasAgregadas < maximaCapacidadPastillas) {
             String nombre = Herramienta.pedirString("Nombre de la pastilla: ", scanner);
-
             String laboratorio = Herramienta.pedirString("Nombre de laboratorio: ", scanner);
             Boolean generico = Herramienta.pedirBool("Generico: ", scanner);
             int codigo = Herramienta.pedirEntero("Codigo de barras: ", scanner);
