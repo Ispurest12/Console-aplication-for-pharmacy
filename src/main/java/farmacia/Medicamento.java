@@ -28,43 +28,28 @@ public class Medicamento {
         return nombre;
     }
 
-   /* public void setNombre(String nombre) {
-        this.nombre = nombre;
-    } */
+
 
     public String getLab() {
         return lab;
     }
 
-    /*public void setLab(String lab) {
-        this.lab = lab;
-    }
-*/
 
     public Boolean getTipo_medicamento() {
         return tipo_medicamento;
     }
-/*
-    public void setTipo_medicamento(Boolean tipo_medicamento) {
-        this.tipo_medicamento = tipo_medicamento;
-    }
-*/
+
     public int getCodigo_barras() {
         return codigo_barras;
     }
 
-  /*  public void setCodigo_barras(int codigo_barras) {
-        this.codigo_barras = codigo_barras;
-    }
-*/
+
+
     public double getCostoMedicamento() {
         return costoMedicamento;
     }
 
-  /*  public void setCostoMedicamento(double costoMedicamento) {
-        this.costoMedicamento = costoMedicamento;
-    }
-*/
+
     public double getCostoPublico() {
         return costoPublico;
     }
@@ -78,21 +63,13 @@ public class Medicamento {
     }
 
 
-    /*public void setFecha_publicacion(LocalDate fecha_publicacion) {
-        this.fecha_publicacion = fecha_publicacion;
-    }*/
-
     public LocalDate getFecha_caducidad() {
         return fecha_caducidad;
     }
 
-    /*public void setFecha_caducidad(LocalDate fecha_caducidad) {
-        this.fecha_caducidad = fecha_caducidad;
-    }*/
-
     @Override
     public String toString() {
-        return "Nombre='" + nombre + '\'' + ", Laboratorio='" + lab + '\'' + ", Tipo_medicamento=" + tipo_medicamento + ", Codigo_barras=" + codigo_barras + ", CostoMedicamento=" + costoMedicamento + ", CostoPublico=" + costoPublico;
+        return "Nombre: '" + nombre + '\'' + ", Laboratorio: '" + lab + '\'' + ", Patente: " + tipo_medicamento + ", Codigo barras: " + codigo_barras + ", Costo del medicamento: " + costoMedicamento + ", CostoPublico: " + costoPublico;
     }
 
 

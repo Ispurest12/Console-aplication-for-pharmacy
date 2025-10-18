@@ -5,14 +5,6 @@ import java.time.LocalDate;
 public class Pomada extends Medicamento {
     private final String gramosPorUnidad;
 
- /*   public String getGramosPorUnidad() {
-        return gramosPorUnidad;
-    }
-
-    public void setGramosPorUnidad(String gramosPorUnidad) {
-        this.gramosPorUnidad = gramosPorUnidad;
-    } */
-
 
     public Pomada(String nombre, String lab, Boolean tipo_medicamento, int codigo_barras, double costoMedicamento, double costoPublico, LocalDate fecha_publicacion, LocalDate fecha_caducidad, String gramosPorUnidad) {
         super(nombre, lab, tipo_medicamento, codigo_barras, costoMedicamento, costoPublico, fecha_publicacion, fecha_caducidad);

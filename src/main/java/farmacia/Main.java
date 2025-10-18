@@ -15,7 +15,8 @@ public class Main {
             System.out.print("6. Imprimir resumen \n");
             System.out.print("7. Buscar \n");
             System.out.print("8. Ordenar e imprimir \n");
-            System.out.print("9. salir \n");
+            System.out.print("9. ordenar e imprimir(Desendente)\n");
+            System.out.print("10. salir \n");
             int opcion = Herramienta.pedirEntero("Opcion: ", scanner);
             switch (opcion) {
                 case 1: {
@@ -120,12 +121,16 @@ public class Main {
                 case 6: {
                     System.out.println("a. Imprimir resumen de medicamentos con patente");
                     System.out.println("b. Imprimir resumen de medicamentos genericos");
+                    System.out.println("c. Imprimir de todos los medicamentos");
                     char resultado = Herramienta.pedirChar("Opcion: ", scanner);
                     if (resultado == 'a') {
                         mifarmacia.imprimirResumenPatente();
                     }
                     if (resultado == 'b') {
                         mifarmacia.imprimirResumenGenerico();
+                    }
+                    if (resultado == 'c') {
+                        mifarmacia.imprimirTablaResumen();
                     }
                 }break;
                 case 7:{
@@ -168,7 +173,7 @@ public class Main {
                             }
                         }break;
                         case 'b':{
-                            System.out.println("1. Ordenar por nombre e imprimir datos");
+                            System.out.println("1. Ordenar por nombre  e imprimir datos");
                             System.out.println("2. Ordenar por precio e imprimir datos");
 
                             int resultado1 = Herramienta.pedirEntero("Opcion: ",scanner);
@@ -196,6 +201,52 @@ public class Main {
 
                 }continue;
                 case 9:{
+                    System.out.println("a. Pastillas");
+                    System.out.println("b. Jarabes");
+                    System.out.println("c. Pomadas");
+                    char resultado = Herramienta.pedirChar("Opcion: ", scanner);
+                    switch (resultado) {
+                        case 'a':{
+                            System.out.println("1. Ordenar por nombre e imprimir datos");
+                            System.out.println("2. Ordenar por precio e imprimir datos");
+
+                            int resultado1 = Herramienta.pedirEntero("Opcion: ",scanner);
+                            if(resultado1 == 1){
+                                mifarmacia.ordenarPorNombrePastillaD();
+                            }
+                            if(resultado1 == 2){
+                                mifarmacia.ordenarPorPrecioPastillaD();
+                            }
+                        }break;
+                        case 'b':{
+                            System.out.println("1. Ordenar por nombre  e imprimir datos");
+                            System.out.println("2. Ordenar por precio e imprimir datos");
+
+                            int resultado1 = Herramienta.pedirEntero("Opcion: ",scanner);
+                            if(resultado1 == 1){
+                                mifarmacia.ordenarPorNombreJarabeD();
+                            }
+                            if(resultado1 == 2){
+                                mifarmacia.ordenarPorPrecioJarabeD();
+                            }
+
+                        } break;
+                        case 'c':{
+                            System.out.println("1. Ordenar por nombre e imprimir datos");
+                            System.out.println("2. Ordenar por precio e imprimir datos");
+
+                            int resultado1 = Herramienta.pedirEntero("Opcion: ",scanner);
+                            if(resultado1 == 1) {
+                                mifarmacia.ordenarPorNombrePomadaD();
+                            }
+                            if(resultado1 == 2){
+                                mifarmacia.ordenarPorPrecioPomadaD();
+                            }
+                        }break;
+                    }
+
+                }continue;
+                case 10:{
                     salir = true;
                     scanner.close();
                 }

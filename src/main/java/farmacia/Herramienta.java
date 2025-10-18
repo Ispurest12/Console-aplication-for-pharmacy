@@ -79,19 +79,4 @@ public class Herramienta {
         }
     }
 
-
-
-    /* public static int ExtraerNumeroDeString(String texto){
-        if(texto == null || texto.isEmpty()){
-            return 0;
-        }
-        String soloNumeros = texto.replaceAll("[^0-9]", "");
-        if(soloNumeros.isEmpty()){
-            return 0;
-        }
-
-        return  Integer.parseInt(soloNumeros);
-    }
-*/
-
 }

@@ -13,21 +13,7 @@ public class Jarabe extends Medicamento {
         this.dosificador = dosificador;
     }
 
-   /* public String getMililitros_por_jarabe() {
-        return mililitros_por_jarabe;
-    }
 
-    public void setMililitros_por_jarabe(String mililitros_por_jarabe) {
-        this.mililitros_por_jarabe = mililitros_por_jarabe;
-    }
-
-    public boolean isDosificador() {
-        return dosificador;
-    }
-
-    public void setDosificador(boolean dosificador) {
-        this.dosificador = dosificador;
-    }*/
 
     public String MostrarNombreJarabePrecio(){
 

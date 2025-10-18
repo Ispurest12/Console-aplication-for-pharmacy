@@ -12,17 +12,6 @@ public class Pastilla extends Medicamento{
         this.miligramos_por_pastilla = miligramos_por_pastilla;
     }
 
-    /*public void setNumero_de_pastillas_en_caja(String numero_de_pastillas_en_caja) {
-        this.numero_de_pastillas_en_caja = numero_de_pastillas_en_caja;
-    }
-
-    public String getMiligramos_por_pastilla() {
-        return miligramos_por_pastilla;
-    }
-
-    public void setMiligramos_por_pastilla(String miligramos_por_pastilla) {
-        this.miligramos_por_pastilla = miligramos_por_pastilla;
-    } */
 
 
     public String MostrarNombrePastillaPrecio(){

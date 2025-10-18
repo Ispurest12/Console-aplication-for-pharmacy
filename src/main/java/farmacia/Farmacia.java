@@ -650,6 +650,96 @@ public class Farmacia {
        }
    }
 
+    public void imprimirTablaResumen(){
+        double precio, costo;
+
+        precio =  0.0; costo = 0.0;
+        if(pastillasAgregadas == 0 && jarabesAgregados == 0 && pomadasAgregadas == 0){
+            System.out.println("No hay medicamentos registrados");
+        }
+        for(int i = 0; i < pastillasAgregadas; i++){
+            System.out.println(pastillas[i].MostrarNombrePastillaPrecio());
+            precio += pastillas[i].getCostoPublico();
+            costo += pastillas[i].getCostoMedicamento();
+
+        }
+        for(int i = 0; i < jarabesAgregados; i++){
+            System.out.println(jarabes[i].MostrarNombreJarabePrecio());
+            precio += jarabes[i].getCostoPublico();
+            costo += jarabes[i].getCostoMedicamento();
+        }
+        for(int i = 0; i < pomadasAgregadas; i++){
+            System.out.println(pomadas[i].MostrarNombrePomadaPrecio());
+            precio += pomadas[i].getCostoPublico();
+            precio += pomadas[i].getCostoMedicamento();
+        }
+        System.out.println("Precio Total: " + precio);
+        System.out.println("Costo Total: " + costo);
+    }
+
+    public void ordenarPorNombrePastillaD(){
+        if(pastillasAgregadas == 0){
+            System.out.println("No hay pastillas para ordenar");
+            return;
+        }
+        Arrays.sort(pastillas, 0, pastillasAgregadas, Comparator.comparing(Pastilla::getNombre,  String.CASE_INSENSITIVE_ORDER));
+        for(int i = pastillasAgregadas - 1; i >= 0; i--){
+            System.out.println(pastillas[i]);
+        }
+    }
+    public void ordenarPorPrecioPastillaD(){
+        if(pastillasAgregadas == 0){
+            System.out.println("No hay pastillas para ordenar");
+            return;
+        }
+        Arrays.sort(pastillas, 0, pastillasAgregadas, Comparator.comparingDouble(Pastilla::getCostoPublico));
+        for(int i = pastillasAgregadas - 1; i >= 0; i--){
+            System.out.println(pastillas[i]);
+        }
+    }
+    public void ordenarPorNombreJarabeD(){
+        if(jarabesAgregados == 0){
+            System.out.println("No hay jarabes para ordenar");
+            return;
+        }
+        Arrays.sort(jarabes, 0, jarabesAgregados, Comparator.comparing(Jarabe::getNombre,  String.CASE_INSENSITIVE_ORDER));
+        for(int i = jarabesAgregados-1; i >= 0; i--){
+            System.out.println(jarabes[i]);
+        }
+    }
+    public void ordenarPorPrecioJarabeD(){
+        if(jarabesAgregados == 0){
+            System.out.println("No hay jarabes para ordenar");
+            return;
+        }
+        Arrays.sort(jarabes, 0, jarabesAgregados, Comparator.comparingDouble(Jarabe::getCostoPublico));
+        for(int i = jarabesAgregados-1; i >= 0; i--){
+            System.out.println(jarabes[i]);
+        }
+    }
+
+    public void ordenarPorNombrePomadaD(){
+        if(pomadasAgregadas == 0){
+            System.out.println("No hay pomadas para ordenar");
+            return;
+        }
+        Arrays.sort(pomadas, 0, pomadasAgregadas, Comparator.comparing(Pomada::getNombre, String.CASE_INSENSITIVE_ORDER));
+        for (int i = pomadasAgregadas-1; i >= 0; i--) {
+            System.out.println(pomadas[i]);
+        }
+    }
+
+
+    public void ordenarPorPrecioPomadaD(){
+        if(pomadasAgregadas == 0){
+            System.out.println("No hay pomadas para ordenar");
+            return;
+        }
+        Arrays.sort(pomadas, 0, pomadasAgregadas, Comparator.comparingDouble(Pomada::getCostoPublico));
+        for(int i = pomadasAgregadas-1; i >= 0; i--){
+            System.out.println(pomadas[i]);
+        }
+    }
 
 
 
